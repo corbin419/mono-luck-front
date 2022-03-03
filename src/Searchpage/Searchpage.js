@@ -15,9 +15,10 @@ function SearchPage() {
   const [num, setnum] = useState("");
 
   const handleChangePhone = (e) => {
-    let value = e;
+    let value = e.target.value.replace(/[^\d]/, "");
     setstate({ checkcode: value });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (num == "") {
@@ -50,9 +51,7 @@ function SearchPage() {
             value={state.checkcode}
             inputMode="numeric"
             label="手機號碼"
-            onChange={(e) =>
-              handleChangePhone(e.target.value.replace(/[^\d.]/g, ""))
-            }
+            onChange={(e) => handleChangePhone(e)}
             helperText={helperTextCorrect}
             error={numerror}
             fullWidth
