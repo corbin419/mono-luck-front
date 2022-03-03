@@ -15,6 +15,7 @@ import CreateIcon from "@mui/icons-material/Create";
 import SearchIcon from "@mui/icons-material/Search";
 import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
 import "../components/MenuBar.css";
+
 function MenuBar(props) {
   const [state, setState] = React.useState({
     top: false,
@@ -69,7 +70,7 @@ function MenuBar(props) {
         <ListItem disablePadding>
           <div className="barbutton1">
             <Link href="/searchPage" underline="none">
-              <ListItemButton className="button123">
+              <ListItemButton >
                 <ListItemIcon>
                   <SearchIcon />
                 </ListItemIcon>
