@@ -1,23 +1,24 @@
 import * as React from "react";
 import MenuBar from "../components/MenuBar";
-import {Box,Button,TextField} from "@mui/material";
-import "./searchpage.css";
+import { Box, Button, TextField } from "@mui/material";
+import "./SearchPage.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../Axios.config";
 
-
 function SearchPage() {
   let history = useNavigate();
-
+  const [state, setstate] = useState("");
   const [helperTextCorrect, sethelperTextError] =
     useState("請輸入您的手機號碼");
   const [numerror, setnumerror] = useState(false);
   const [num, setnum] = useState("");
 
   const handleChangePhone = (e) => {
-    setnum(e.target.value);
+    let value = e.target.value.replace(/[^\d]/, "");
+    setstate({ checkcode: value });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (num == "") {
@@ -25,21 +26,18 @@ function SearchPage() {
       setnumerror(true);
     } else {
       axios
-        .get("/api/lottery",{
-          params : {
-            phoneNumber : num
-          }
-        }
-        ).then((response) => 
-          {
-            history("/SearchPageWait",{ state : response.data.message });
-          }
-        ).catch((error) =>
-          {
-            setnumerror(true);
-            sethelperTextError(error.response.data["message"]);         
-          }
-      )
+        .get("/api/lottery", {
+          params: {
+            phoneNumber: num,
+          },
+        })
+        .then((response) => {
+          history("/SearchPageWait", { state: response.data.message });
+        })
+        .catch((error) => {
+          setnumerror(true);
+          sethelperTextError(error.response.data["message"]);
+        });
     }
   };
   return (
@@ -49,6 +47,9 @@ function SearchPage() {
         <div className="phoneenter">
           <TextField
             id="outlined-password-input"
+            onPaste={(e) => e.preventDefault()}
+            value={state.checkcode}
+            inputMode="numeric"
             label="手機號碼"
             onChange={(e) => handleChangePhone(e)}
             helperText={helperTextCorrect}
@@ -57,9 +58,15 @@ function SearchPage() {
           />
         </div>
         <div className="finishbutton">
-          <Button fullWidth variant="contained" type="submit" style={{backgroundColor: '#02A2EE', color: '#FFFFFF'}}>
+          <Button
+            fullWidth
+            variant="contained"
+            type="submit"
+            style={{ backgroundColor: "#02A2EE", color: "#FFFFFF" }}
+          >
             完成
-          </Button></div>
+          </Button>
+        </div>
       </form>
     </div>
   );
