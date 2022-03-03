@@ -1,11 +1,10 @@
 import * as React from "react";
 import MenuBar from "../components/MenuBar";
-import {Box,Button,TextField} from "@mui/material";
-import "./searchpage.css";
+import { Box, Button, TextField } from "@mui/material";
+import "./SearchPage.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../Axios.config";
-
 
 function SearchPage() {
   let history = useNavigate();
@@ -25,21 +24,18 @@ function SearchPage() {
       setnumerror(true);
     } else {
       axios
-        .get("/api/lottery",{
-          params : {
-            phoneNumber : num
-          }
-        }
-        ).then((response) => 
-          {
-            history("/SearchPageWait",{ state : response.data.message });
-          }
-        ).catch((error) =>
-          {
-            setnumerror(true);
-            sethelperTextError(error.response.data["message"]);         
-          }
-      )
+        .get("/api/lottery", {
+          params: {
+            phoneNumber: num,
+          },
+        })
+        .then((response) => {
+          history("/SearchPageWait", { state: response.data.message });
+        })
+        .catch((error) => {
+          setnumerror(true);
+          sethelperTextError(error.response.data["message"]);
+        });
     }
   };
   return (
@@ -48,8 +44,10 @@ function SearchPage() {
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <div className="phoneenter">
           <TextField
+            inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
             id="outlined-password-input"
             label="手機號碼"
+            type="number"
             onChange={(e) => handleChangePhone(e)}
             helperText={helperTextCorrect}
             error={numerror}
@@ -57,9 +55,15 @@ function SearchPage() {
           />
         </div>
         <div className="finishbutton">
-          <Button fullWidth variant="contained" type="submit" style={{backgroundColor: '#02A2EE', color: '#FFFFFF'}}>
+          <Button
+            fullWidth
+            variant="contained"
+            type="submit"
+            style={{ backgroundColor: "#02A2EE", color: "#FFFFFF" }}
+          >
             完成
-          </Button></div>
+          </Button>
+        </div>
       </form>
     </div>
   );

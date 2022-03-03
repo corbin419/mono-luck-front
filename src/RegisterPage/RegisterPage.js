@@ -302,7 +302,9 @@ function RegisterPage(props) {
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <div className="phonenumber">
           <TextField
+          inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
             id="outlined-password-input"
+            type="number"
             label="手機號碼"
             onChange={(e) => handleChangePhone(e)}
             helperText={helperTextCorrect}
