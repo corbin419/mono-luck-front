@@ -35,6 +35,7 @@ function RegisterPage(props) {
   const [checkrule, setcheckrule] = useState(false);
   const [chipData, setChipData] = useState(() => []);
   const [Open, setOpen] = useState(false);
+  const[state,setstate]=useState("");
   const [color, setcolor] = useState("black");
   const handleClose = () => {
     setOpen(false);
@@ -79,7 +80,8 @@ function RegisterPage(props) {
   };
 
   const handleChangePhone = (e) => {
-    setnum(e.target.value);
+    let value=e.target.value.replace(/[^\d]/, "");
+    setstate({checkcode:value});
   };
 
   const handleDelete = (chipToDelete) => () => {
@@ -103,11 +105,13 @@ function RegisterPage(props) {
     <div class="box">
       <MenuBar name="鎖櫃登記" />
       <div className="Text1">
-      <Typography variant="body2">
-        請點擊欲租借的鎖櫃編號，可選三項，須至少輸入一項
-      </Typography>
+        <Typography variant="body2">
+          請點擊欲租借的鎖櫃編號，可選三項，須至少輸入一項
+        </Typography>
       </div>
-      <div className="divider2"><Divider variant="middle" /></div>
+      <div className="divider2">
+        <Divider variant="middle" />
+      </div>
       <div>
         <div className="buttongroup">
           <div className="group">
@@ -123,10 +127,26 @@ function RegisterPage(props) {
               <ToggleButton value="01" color="primary">
                 01
               </ToggleButton>
-              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
-              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
-              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
-              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
+              <ToggleButton
+                value="disabe"
+                disabled
+                style={{ backgroundColor: "#E5E5E5" }}
+              ></ToggleButton>
+              <ToggleButton
+                value="disabe"
+                disabled
+                style={{ backgroundColor: "#E5E5E5" }}
+              ></ToggleButton>
+              <ToggleButton
+                value="disabe"
+                disabled
+                style={{ backgroundColor: "#E5E5E5" }}
+              ></ToggleButton>
+              <ToggleButton
+                value="disabe"
+                disabled
+                style={{ backgroundColor: "#E5E5E5" }}
+              ></ToggleButton>
               <ToggleButton value="02" color="primary">
                 02
               </ToggleButton>
@@ -145,10 +165,26 @@ function RegisterPage(props) {
               <ToggleButton value="04" color="primary">
                 04
               </ToggleButton>
-              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
-              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
-              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
-              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
+              <ToggleButton
+                value="disabe"
+                disabled
+                style={{ backgroundColor: "#E5E5E5" }}
+              ></ToggleButton>
+              <ToggleButton
+                value="disabe"
+                disabled
+                style={{ backgroundColor: "#E5E5E5" }}
+              ></ToggleButton>
+              <ToggleButton
+                value="disabe"
+                disabled
+                style={{ backgroundColor: "#E5E5E5" }}
+              ></ToggleButton>
+              <ToggleButton
+                value="disabe"
+                disabled
+                style={{ backgroundColor: "#E5E5E5" }}
+              ></ToggleButton>
               <ToggleButton value="05" color="primary">
                 05
               </ToggleButton>
@@ -302,9 +338,7 @@ function RegisterPage(props) {
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <div className="phonenumber">
           <TextField
-          inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-            id="outlined-password-input"
-            type="number"
+            value={state.checkcode}
             label="手機號碼"
             onChange={(e) => handleChangePhone(e)}
             helperText={helperTextCorrect}
@@ -332,7 +366,12 @@ function RegisterPage(props) {
           </Link>
         </div>
         <div className="buttonsend">
-          <Button variant="contained" type="submit" fullWidth style={{backgroundColor: '#02A2EE', color: '#FFFFFF'}}>
+          <Button
+            variant="contained"
+            type="submit"
+            fullWidth
+            style={{ backgroundColor: "#02A2EE", color: "#FFFFFF" }}
+          >
             送出
           </Button>
         </div>
@@ -356,7 +395,7 @@ function RegisterPage(props) {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose} autoFocus >
+            <Button onClick={handleClose} autoFocus>
               確認
             </Button>
           </DialogActions>

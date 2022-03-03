@@ -8,14 +8,15 @@ import axios from "../Axios.config";
 
 function SearchPage() {
   let history = useNavigate();
-
+  const[state,setstate]=useState("");
   const [helperTextCorrect, sethelperTextError] =
     useState("請輸入您的手機號碼");
   const [numerror, setnumerror] = useState(false);
   const [num, setnum] = useState("");
 
   const handleChangePhone = (e) => {
-    setnum(e.target.value);
+    let value=e.target.value.replace(/[^\d]/, "");
+    setstate({checkcode:value});
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,10 +45,9 @@ function SearchPage() {
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <div className="phoneenter">
           <TextField
-            inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
             id="outlined-password-input"
+            value={state.checkcode}
             label="手機號碼"
-            type="number"
             onChange={(e) => handleChangePhone(e)}
             helperText={helperTextCorrect}
             error={numerror}
