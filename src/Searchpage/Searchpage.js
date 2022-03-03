@@ -15,7 +15,7 @@ function SearchPage() {
   const [num, setnum] = useState("");
 
   const handleChangePhone = (e) => {
-    let value=e.target.value.replace(/[^\d]/, "");
+    let value=e;
     setstate({checkcode:value});
   };
   const handleSubmit = (e) => {
@@ -46,9 +46,10 @@ function SearchPage() {
         <div className="phoneenter">
           <TextField
             id="outlined-password-input"
+            onPaste={(e)=>e.preventDefault()}
             value={state.checkcode}
             label="手機號碼"
-            onChange={(e) => handleChangePhone(e)}
+            onChange={(e) => handleChangePhone(e.target.value.replace(/[^\d.]/g, ""))}
             helperText={helperTextCorrect}
             error={numerror}
             fullWidth

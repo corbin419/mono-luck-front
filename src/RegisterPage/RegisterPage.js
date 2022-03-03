@@ -35,7 +35,7 @@ function RegisterPage(props) {
   const [checkrule, setcheckrule] = useState(false);
   const [chipData, setChipData] = useState(() => []);
   const [Open, setOpen] = useState(false);
-  const[state,setstate]=useState("");
+  const [state, setstate] = useState("");
   const [color, setcolor] = useState("black");
   const handleClose = () => {
     setOpen(false);
@@ -80,8 +80,8 @@ function RegisterPage(props) {
   };
 
   const handleChangePhone = (e) => {
-    let value=e.target.value.replace(/[^\d]/, "");
-    setstate({checkcode:value});
+    let value = e.target.value.replace(/[^\d]/, "");
+    setstate({ checkcode: value });
   };
 
   const handleDelete = (chipToDelete) => () => {
@@ -338,6 +338,7 @@ function RegisterPage(props) {
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <div className="phonenumber">
           <TextField
+            onPaste={(e) => e.preventDefault()}
             value={state.checkcode}
             label="手機號碼"
             onChange={(e) => handleChangePhone(e)}
