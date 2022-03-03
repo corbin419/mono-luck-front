@@ -339,6 +339,7 @@ function RegisterPage(props) {
         <div className="phonenumber">
           <TextField
             onPaste={(e) => e.preventDefault()}
+            inputMode="numeric"
             value={state.checkcode}
             label="手機號碼"
             onChange={(e) => handleChangePhone(e)}

@@ -8,15 +8,15 @@ import axios from "../Axios.config";
 
 function SearchPage() {
   let history = useNavigate();
-  const[state,setstate]=useState("");
+  const [state, setstate] = useState("");
   const [helperTextCorrect, sethelperTextError] =
     useState("請輸入您的手機號碼");
   const [numerror, setnumerror] = useState(false);
   const [num, setnum] = useState("");
 
   const handleChangePhone = (e) => {
-    let value=e;
-    setstate({checkcode:value});
+    let value = e;
+    setstate({ checkcode: value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,10 +46,13 @@ function SearchPage() {
         <div className="phoneenter">
           <TextField
             id="outlined-password-input"
-            onPaste={(e)=>e.preventDefault()}
+            onPaste={(e) => e.preventDefault()}
             value={state.checkcode}
+            inputMode="numeric"
             label="手機號碼"
-            onChange={(e) => handleChangePhone(e.target.value.replace(/[^\d.]/g, ""))}
+            onChange={(e) =>
+              handleChangePhone(e.target.value.replace(/[^\d.]/g, ""))
+            }
             helperText={helperTextCorrect}
             error={numerror}
             fullWidth
