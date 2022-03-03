@@ -13,15 +13,21 @@
     left: 16px;
     opacity: 60%;
     top: 10px;
-
 }
 .barbutton1{
     position: relative;
-    width: 304px;
+    width: 300px;
     top: 15px;
+}
+.barbutton1:hover{
+    background-color: #E1F4FD;
+    color: #02A2EE;
 }
 .barbutton2{
     position: relative;
     width: 304px;
     top: 10px;
+}
+.barbutton2:hover{
+    background-color: #E1F4FD;
 }
