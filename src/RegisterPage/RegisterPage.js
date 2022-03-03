@@ -123,10 +123,10 @@ function RegisterPage(props) {
               <ToggleButton value="01" color="primary">
                 01
               </ToggleButton>
-              <ToggleButton value="disabe" disabled></ToggleButton>
-              <ToggleButton value="disabe" disabled></ToggleButton>
-              <ToggleButton value="disabe" disabled></ToggleButton>
-              <ToggleButton value="disabe" disabled></ToggleButton>
+              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
+              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
+              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
+              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
               <ToggleButton value="02" color="primary">
                 02
               </ToggleButton>
@@ -145,10 +145,10 @@ function RegisterPage(props) {
               <ToggleButton value="04" color="primary">
                 04
               </ToggleButton>
-              <ToggleButton value="disabe" disabled></ToggleButton>
-              <ToggleButton value="disabe" disabled></ToggleButton>
-              <ToggleButton value="disabe" disabled></ToggleButton>
-              <ToggleButton value="disabe" disabled></ToggleButton>
+              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
+              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
+              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
+              <ToggleButton value="disabe" disabled style={{backgroundColor: '#E5E5E5'}}></ToggleButton>
               <ToggleButton value="05" color="primary">
                 05
               </ToggleButton>
