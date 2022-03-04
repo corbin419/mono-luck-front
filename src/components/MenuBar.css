@@ -32,3 +32,9 @@
     background-color: #E1F4FD;
     color: #02A2EE;
 }
+.bar {
+    background-color: #02a2ee;
+    color: #ffffff;
+    width: 100%;
+    border:  solid 2px crimson;
+}

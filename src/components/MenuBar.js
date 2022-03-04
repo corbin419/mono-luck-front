@@ -16,7 +16,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
 import "../components/MenuBar.css";
 import { styled } from '@mui/material/styles';
-import { color } from "@mui/system";
 
 
 
@@ -47,7 +46,7 @@ function MenuBar(props) {
     },
   });
   const list = (anchor) => (
-    <Box
+    <Box 
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
