@@ -62,7 +62,6 @@ function RegisterPage(props) {
       setcolor("black");
       let lock = `${chipData}`;
       const json = JSON.stringify({ phoneNumber: num, priority: lock });
-
       axios
         .post("api/registerLocker", JSON.parse(json))
         .then((response) => {
@@ -102,7 +101,7 @@ function RegisterPage(props) {
     setChipData(newFormats);
   };
   return (
-    <div class="box">
+    <div className="bigbox1">
       <MenuBar name="鎖櫃登記" />
       <div className="Text1">
         <Typography variant="body2">
@@ -130,22 +129,22 @@ function RegisterPage(props) {
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5" }}
+                style={{ backgroundColor: "#E5E5E5" ,border:"solid 1px #E0E0E0"}}
               ></ToggleButton>
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5" }}
+                style={{ backgroundColor: "#E5E5E5" ,border:"solid 1px #E0E0E0"}}
               ></ToggleButton>
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5" }}
+                style={{ backgroundColor: "#E5E5E5" ,border:"solid 1px #E0E0E0"}}
               ></ToggleButton>
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5" }}
+                style={{ backgroundColor: "#E5E5E5" ,border:"solid 1px #E0E0E0"}}
               ></ToggleButton>
               <ToggleButton value="02" color="primary">
                 02
@@ -168,22 +167,22 @@ function RegisterPage(props) {
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5" }}
+                style={{ backgroundColor: "#E5E5E5" ,border:"solid 1px #E0E0E0"}}
               ></ToggleButton>
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5" }}
+                style={{ backgroundColor: "#E5E5E5",border:"solid 1px #E0E0E0" }}
               ></ToggleButton>
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5" }}
+                style={{ backgroundColor: "#E5E5E5",border:"solid 1px #E0E0E0" }}
               ></ToggleButton>
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5" }}
+                style={{ backgroundColor: "#E5E5E5",border:"solid 1px #E0E0E0" }}
               ></ToggleButton>
               <ToggleButton value="05" color="primary">
                 05
