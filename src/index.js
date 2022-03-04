@@ -12,6 +12,7 @@ import RegisterPage from "./RegisterPage/RegisterPage";
 import SearchPage from "./Searchpage/SearchPage";
 import FinishPage from "./RegisterFinishPage/RegisterFinishPage";
 import SearchPageWait from "./SearchPageWait/SearchPageWait";
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -29,4 +30,5 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
+serviceWorkerRegistration.register();
 reportWebVitals();
