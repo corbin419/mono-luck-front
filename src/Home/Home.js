@@ -25,7 +25,7 @@ function Home() {
           <Link href="/registerPage" underline="none"><Button variant="contained" fullWidth startIcon={<EditIcon />} style={{backgroundColor: '#02A2EE', color: '#FFFFFF'}}>
           鎖櫃登記
           </Button></Link>
-          <Link href="/searchPage" underline="none"><Button variant="outlined" fullWidth startIcon={<SearchOutlinedIcon />}>
+          <Link href="/searchPage" underline="none"><Button variant="outlined" fullWidth startIcon={<SearchOutlinedIcon />} style={{ color:'#02A2EE'}}>
           登記查詢
           </Button></Link>
         </Stack>

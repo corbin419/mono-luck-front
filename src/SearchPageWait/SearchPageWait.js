@@ -21,7 +21,7 @@ function SearchPageWait() {
       <div className="waitingtext">{message}</div>
       </Typography>
       <div className="button">
-      <Button variant="contained" fullWidth onClick={handleclick}>
+      <Button variant="contained" fullWidth onClick={handleclick} style={{backgroundColor: '#02A2EE', color: '#FFFFFF'}}>
         完成
       </Button></div></div>
     </div>
