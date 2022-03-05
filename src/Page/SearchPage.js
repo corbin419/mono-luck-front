@@ -47,7 +47,7 @@ function SearchPage() {
             id="outlined-password-input"
             onPaste={(e) => e.preventDefault()}
             value={state.checkcode}
-            inputMode="numeric"
+            inputProps={{inputMode:"numeric"}}
             label="手機號碼"
             onChange={(e) => handleChangePhone(e)}
             helperText={helperTextCorrect}
