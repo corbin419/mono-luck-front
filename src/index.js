@@ -9,7 +9,7 @@ import SearchPage from "./Page/SearchPage";
 import FinishPage from "./Page/RegisterFinishPage";
 import SearchPageWait from "./Page/SearchPageWait";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
-import MenuBar from "./components/MenuBar";
+import MenuBar from "./Components/MenuBar";
 
 ReactDOM.render(
   <React.StrictMode>

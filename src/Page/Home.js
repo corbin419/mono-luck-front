@@ -1,6 +1,6 @@
 import * as React from "react";
 import Button from '@mui/material/Button';
-import Monologo from "../pic/monologo.png";
+import Monologo from "../Pic/monologo.png";
 import "./Home.css";
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
