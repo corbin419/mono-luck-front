@@ -14,7 +14,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import CreateIcon from "@mui/icons-material/Create";
 import SearchIcon from "@mui/icons-material/Search";
 import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
-import "../components/MenuBar.css";
+import "../Components/MenuBar.css";
 import { styled } from "@mui/material/styles";
 import { useLocation } from "react-router-dom";
 
