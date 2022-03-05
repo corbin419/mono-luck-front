@@ -1,5 +1,4 @@
 import * as React from "react";
-import MenuBar from "../components/MenuBar";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Typography from '@mui/material/Typography';
 import Button from "@mui/material/Button";
@@ -15,7 +14,6 @@ function RegisterFinishPage() {
     };
   return (
       <div className="bigbox">
-      <MenuBar name="登記成功" />
       <div className="icon">
       <CheckCircleIcon  fontSize="large"/>
       </div>

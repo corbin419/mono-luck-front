@@ -15,12 +15,25 @@ import CreateIcon from "@mui/icons-material/Create";
 import SearchIcon from "@mui/icons-material/Search";
 import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
 import "../components/MenuBar.css";
-import { styled } from '@mui/material/styles';
-
-
-
+import { styled } from "@mui/material/styles";
+import { useLocation } from "react-router-dom";
 
 function MenuBar(props) {
+  const MenuBarTitleMap = [
+    { path: "/", title: "首頁" },
+    { path: "/RegisterPage", title: "鎖櫃登記" },
+    { path: "/SearchPage", title: "查詢登記" },
+    { path: "/RegisterFinishPage", title: "登記成功" },
+    { path: "/SearchPageWait", title: "查詢登記" },
+  ];
+  let location = useLocation();
+  let Menutitle;
+  MenuBarTitleMap.forEach((key, value) => {
+    if (key.path === location.pathname) {
+      Menutitle = key.title;
+    }
+  });
+
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -38,15 +51,15 @@ function MenuBar(props) {
   };
   const StyledList = styled(List)({
     // hover states
-    '& .MuiListItemButton-root:hover': {
-      backgroundColor: '#E1F4FD',
-      '&, & .Typography-root': {
-        color: '#02A2EE',
+    "& .MuiListItemButton-root:hover": {
+      backgroundColor: "#E1F4FD",
+      "&, & .Typography-root": {
+        color: "#02A2EE",
       },
     },
   });
   const list = (anchor) => (
-    <Box 
+    <Box
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
@@ -68,45 +81,53 @@ function MenuBar(props) {
         </div>
         <ListItem disablePadding>
           <div className="barbutton1">
-            <Link href="/registerPage" underline="none" style={{color: '#000000'}}>
-            <StyledList sx={{
-            '& .MuiListItemButton-root:hover': {
-              '&, & .Typography-root': {
-                color: '#02A2EE',
-                },
-              },
-            }}
+            <Link
+              href="/RegisterPage"
+              underline="none"
+              style={{ color: "#000000" }}
             >
-              <ListItemButton>
-                <ListItemIcon>
-                  <CreateIcon />
-                </ListItemIcon>
-                <Typography variant="subtitle2">
-                  鎖櫃登記
-                </Typography>
-              </ListItemButton></StyledList>
+              <StyledList
+                sx={{
+                  "& .MuiListItemButton-root:hover": {
+                    "&, & .Typography-root": {
+                      color: "#02A2EE",
+                    },
+                  },
+                }}
+              >
+                <ListItemButton>
+                  <ListItemIcon>
+                    <CreateIcon />
+                  </ListItemIcon>
+                  <Typography variant="subtitle2">鎖櫃登記</Typography>
+                </ListItemButton>
+              </StyledList>
             </Link>
           </div>
         </ListItem>
         <ListItem disablePadding>
           <div className="barbutton1">
-            <Link href="/searchPage" underline="none" style={{color: '#000000'}}>
-            <StyledList sx={{
-            '& .MuiListItemButton-root:hover': {
-              '&, & .Typography-root': {
-                color: '#02A2EE',
-                },
-              },
-            }}
+            <Link
+              href="/SearchPage"
+              underline="none"
+              style={{ color: "#000000" }}
             >
-              <ListItemButton >
-                <ListItemIcon>
-                  <SearchIcon />
-                </ListItemIcon>
-                <Typography variant="subtitle2">
-                  查詢登記
-                </Typography>
-              </ListItemButton></StyledList>
+              <StyledList
+                sx={{
+                  "& .MuiListItemButton-root:hover": {
+                    "&, & .Typography-root": {
+                      color: "#02A2EE",
+                    },
+                  },
+                }}
+              >
+                <ListItemButton>
+                  <ListItemIcon>
+                    <SearchIcon />
+                  </ListItemIcon>
+                  <Typography variant="subtitle2">查詢登記</Typography>
+                </ListItemButton>
+              </StyledList>
             </Link>
           </div>
         </ListItem>
@@ -130,7 +151,7 @@ function MenuBar(props) {
             </React.Fragment>
           ))}
         </IconButton>
-        <Typography variant="h6">{props.name}</Typography>
+        <Typography variant="h6">{Menutitle}</Typography>
       </Toolbar>
     </AppBar>
   );

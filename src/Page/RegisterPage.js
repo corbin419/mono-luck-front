@@ -1,7 +1,6 @@
 import * as React from "react";
 import "./RegisterPage.css";
 import { useState } from "react";
-import MenuBar from "../components/MenuBar";
 import axios from "../Axios.config";
 import {
   ToggleButtonGroup,
@@ -27,6 +26,7 @@ import ErrorIcon from "@mui/icons-material/Error";
 
 function RegisterPage(props) {
   let history = useNavigate();
+
   const [formats, setFormats] = useState(() => []);
   const [num, setnum] = useState("");
   const [helperTextCorrect, sethelperTextError] =
@@ -102,10 +102,9 @@ function RegisterPage(props) {
   };
   return (
     <div className="bigbox1">
-      <MenuBar name="鎖櫃登記" />
       <div className="Text1">
         <Typography variant="body2">
-          請點擊欲租借的鎖櫃編號，可選三項，須至少輸入一項
+          請點擊欲租借的鎖櫃編號，可選三項，須至少輸入一項，選擇的鎖櫃順序為鎖櫃抽選志願序。
         </Typography>
       </div>
       <div className="divider2">
@@ -129,22 +128,34 @@ function RegisterPage(props) {
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5" ,border:"solid 1px #E0E0E0"}}
+                style={{
+                  backgroundColor: "#E5E5E5",
+                  border: "solid 1px #E0E0E0",
+                }}
               ></ToggleButton>
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5" ,border:"solid 1px #E0E0E0"}}
+                style={{
+                  backgroundColor: "#E5E5E5",
+                  border: "solid 1px #E0E0E0",
+                }}
               ></ToggleButton>
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5" ,border:"solid 1px #E0E0E0"}}
+                style={{
+                  backgroundColor: "#E5E5E5",
+                  border: "solid 1px #E0E0E0",
+                }}
               ></ToggleButton>
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5" ,border:"solid 1px #E0E0E0"}}
+                style={{
+                  backgroundColor: "#E5E5E5",
+                  border: "solid 1px #E0E0E0",
+                }}
               ></ToggleButton>
               <ToggleButton value="02" color="primary">
                 02
@@ -167,22 +178,34 @@ function RegisterPage(props) {
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5" ,border:"solid 1px #E0E0E0"}}
+                style={{
+                  backgroundColor: "#E5E5E5",
+                  border: "solid 1px #E0E0E0",
+                }}
               ></ToggleButton>
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5",border:"solid 1px #E0E0E0" }}
+                style={{
+                  backgroundColor: "#E5E5E5",
+                  border: "solid 1px #E0E0E0",
+                }}
               ></ToggleButton>
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5",border:"solid 1px #E0E0E0" }}
+                style={{
+                  backgroundColor: "#E5E5E5",
+                  border: "solid 1px #E0E0E0",
+                }}
               ></ToggleButton>
               <ToggleButton
                 value="disabe"
                 disabled
-                style={{ backgroundColor: "#E5E5E5",border:"solid 1px #E0E0E0" }}
+                style={{
+                  backgroundColor: "#E5E5E5",
+                  border: "solid 1px #E0E0E0",
+                }}
               ></ToggleButton>
               <ToggleButton value="05" color="primary">
                 05

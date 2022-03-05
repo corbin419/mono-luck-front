@@ -1,7 +1,6 @@
 import * as React from "react";
-import MenuBar from "../components/MenuBar";
-import { Box, Button, TextField } from "@mui/material";
-import "./searchpage.css";
+import { Button, TextField } from "@mui/material";
+import "./SearchPage.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../Axios.config";
@@ -42,7 +41,6 @@ function SearchPage() {
   };
   return (
     <div className="box">
-      <MenuBar name="查詢登記" />
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <div className="phoneenter">
           <TextField
