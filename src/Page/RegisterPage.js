@@ -394,7 +394,7 @@ function RegisterPage(props) {
             variant="contained"
             type="submit"
             fullWidth
-            style={{ backgroundColor: "#02A2EE", color: "#FFFFFF" }}
+            style={{ backgroundColor: "#02A2EE", color: "#FFFFFF"}}
           >
             送出
           </Button>

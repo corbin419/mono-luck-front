@@ -55,12 +55,12 @@ function SearchPage() {
             fullWidth
           />
         </div>
-        <div className="finishbutton">
+        <div className="finishbutton1">
           <Button
-            fullWidth
             variant="contained"
             type="submit"
             style={{ backgroundColor: "#02A2EE", color: "#FFFFFF" }}
+            fullWidth
           >
             完成
           </Button>
