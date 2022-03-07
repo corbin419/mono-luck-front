@@ -11,6 +11,7 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 function Home() {
   return (
     <div class="box">
+      <div className="box3">
       <div className="Logo">
         <img src={Monologo} alt="Monologo" />
       </div>
@@ -25,7 +26,7 @@ function Home() {
           登記查詢
           </Button></Link>
         </Stack>
-      </div>
+      </div></div>
     </div>
   );
 }
