@@ -16,6 +16,7 @@ function SearchPage() {
   const handleChangePhone = (e) => {
     let value = e.target.value.replace(/[^\d]/, "");
     setstate({ checkcode: value });
+    setnum(value);
   };
 
   const handleSubmit = (e) => {

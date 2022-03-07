@@ -81,6 +81,7 @@ function RegisterPage(props) {
   const handleChangePhone = (e) => {
     let value = e.target.value.replace(/[^\d]/, "");
     setstate({ checkcode: value });
+    setnum(value);
   };
 
   const handleDelete = (chipToDelete) => () => {
