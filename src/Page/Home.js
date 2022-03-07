@@ -1,5 +1,14 @@
 import * as React from "react";
-import {Button,Stack,Typography} from "@mui/material";
+import {
+  Button,
+  Stack,
+  Typography,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
 import Monologo from "../Pic/monologo.png";
 import "./Home.css";
 import { useState } from "react";

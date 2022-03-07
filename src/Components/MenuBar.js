@@ -18,7 +18,7 @@ import CreateIcon from "@mui/icons-material/Create";
 import ErrorIcon from "@mui/icons-material/Error";
 
 import SearchIcon from "@mui/icons-material/Search";
-import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
+import { AppBar, Toolbar, Typography, IconButton,Button } from "@material-ui/core";
 import "../Components/MenuBar.css";
 import { styled } from "@mui/material/styles";
 import { useLocation,useNavigate } from "react-router-dom";
@@ -26,6 +26,9 @@ import { useState } from "react";
 
 function MenuBar(props) {
   let history = useNavigate();
+  const handleClose = () => {
+    setOpen(false);
+  };
   const MenuBarTitleMap = [
     { path: "/", title: "首頁" },
     { path: "/RegisterPage", title: "鎖櫃登記" },
