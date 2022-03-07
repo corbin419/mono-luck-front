@@ -61,7 +61,7 @@ function RegisterPage(props) {
     } else {
       setcolor("black");
       let lock = `${chipData}`;
-      const json = JSON.stringify({ phoneNumber: num, priority: lock });
+      const json = JSON.stringify({ phone: num, priority: lock });
       axios
         .post("api/registerLocker", JSON.parse(json))
         .then((response) => {

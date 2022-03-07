@@ -27,7 +27,7 @@ function SearchPage() {
       axios
         .get("/api/lottery", {
           params: {
-            phoneNumber: num,
+            phone: num,
           },
         })
         .then((response) => {
