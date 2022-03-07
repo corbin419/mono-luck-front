@@ -1,12 +1,12 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
+import {Button,Stack,Typography} from "@mui/material";
 import Monologo from "../Pic/monologo.png";
 import "./Home.css";
 import { useState } from "react";
-import Stack from "@mui/material/Stack";
 import EditIcon from "@mui/icons-material/Edit";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { useNavigate } from "react-router-dom";
+import ErrorIcon from "@mui/icons-material/Error";
 
 function Home() {
   let history = useNavigate();
