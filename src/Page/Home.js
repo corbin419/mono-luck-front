@@ -24,6 +24,8 @@ function Home() {
     setOpen(false);
   };
   const ClickRegisterPage = () => {
+    let time = new Date();
+    let theTime = time.getTime();
     if (true) {
       history("/RegisterPage");
     } else {
@@ -71,12 +73,12 @@ function Home() {
         >
           <DialogTitle id="alert-dialog-title" class="dialog">
             <ErrorIcon color="primary" />
-            <Typography variant="subtitle1">您尚未選擇鎖櫃</Typography>
+            <Typography variant="subtitle1">鎖櫃登記已結束</Typography>
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
               <Typography variant="body2">
-                請點擊欲租借的鎖櫃編號，可選三項，須至少輸入一項
+              鎖櫃登記已結束，請於 12/12 AM 10 回來本系統查看中籤資訊
               </Typography>
             </DialogContentText>
           </DialogContent>

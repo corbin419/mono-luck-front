@@ -18,10 +18,16 @@ import CreateIcon from "@mui/icons-material/Create";
 import ErrorIcon from "@mui/icons-material/Error";
 
 import SearchIcon from "@mui/icons-material/Search";
-import { AppBar, Toolbar, Typography, IconButton,Button } from "@material-ui/core";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Button,
+} from "@material-ui/core";
 import "../Components/MenuBar.css";
 import { styled } from "@mui/material/styles";
-import { useLocation,useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function MenuBar(props) {
@@ -69,6 +75,8 @@ function MenuBar(props) {
     },
   });
   const ClickRegisterPage = () => {
+    let time = new Date();
+    let theTime = time.getTime();
     if (true) {
       history("/RegisterPage");
     } else {
@@ -179,12 +187,12 @@ function MenuBar(props) {
         >
           <DialogTitle id="alert-dialog-title" class="dialog">
             <ErrorIcon color="primary" />
-            <Typography variant="subtitle1">您尚未選擇鎖櫃</Typography>
+            <Typography variant="subtitle1">鎖櫃登記已結束</Typography>
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
               <Typography variant="body2">
-                請點擊欲租借的鎖櫃編號，可選三項，須至少輸入一項
+                鎖櫃登記已結束，請於 12/12 AM 10 回來本系統查看中籤資訊
               </Typography>
             </DialogContentText>
           </DialogContent>
