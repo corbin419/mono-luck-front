@@ -1,14 +1,29 @@
 import * as React from "react";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import Monologo from "../Pic/monologo.png";
 import "./Home.css";
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import EditIcon from '@mui/icons-material/Edit';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-
+import { useState } from "react";
+import Stack from "@mui/material/Stack";
+import EditIcon from "@mui/icons-material/Edit";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  let history = useNavigate();
+  const [Open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const ClickRegisterPage = () => {
+    if (true) {
+      history("/RegisterPage");
+    } else {
+      setOpen(true);
+    }
+  };
+  const ClickSearchPage = () => {
+    history("/SearchPage");
+  };
   return (
     <div class="box">
       <div className="Logo">
@@ -17,14 +32,51 @@ function Home() {
       <div className="Text12">MonoLuck</div>
       <div className="Text22">鎖櫃登記系統</div>
       <div className="Botton">
-        <Stack  spacing={1}>
-          <Link href="/RegisterPage" underline="none"><Button variant="contained" fullWidth startIcon={<EditIcon />} style={{backgroundColor: '#02A2EE', color: '#FFFFFF'}}>
-          鎖櫃登記
-          </Button></Link>
-          <Link href="/SearchPage" underline="none"><Button variant="outlined" fullWidth startIcon={<SearchOutlinedIcon />} style={{ color:'#02A2EE'}}>
-          登記查詢
-          </Button></Link>
+        <Stack spacing={1}>
+          <Button
+            variant="contained"
+            onClick={ClickRegisterPage}
+            fullWidth
+            startIcon={<EditIcon />}
+            style={{ backgroundColor: "#02A2EE", color: "#FFFFFF" }}
+          >
+            鎖櫃登記
+          </Button>
+          <Button
+            variant="outlined"
+            fullWidth
+            onClick={ClickSearchPage}
+            startIcon={<SearchOutlinedIcon />}
+            style={{ color: "#02A2EE" }}
+          >
+            登記查詢
+          </Button>
         </Stack>
+      </div>
+      <div>
+        <Dialog
+          open={Open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title" class="dialog">
+            <ErrorIcon color="primary" />
+            <Typography variant="subtitle1">您尚未選擇鎖櫃</Typography>
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              <Typography variant="body2">
+                請點擊欲租借的鎖櫃編號，可選三項，須至少輸入一項
+              </Typography>
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} autoFocus>
+              確認
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
     </div>
   );
