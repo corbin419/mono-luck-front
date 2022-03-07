@@ -16,6 +16,7 @@ function SearchPage() {
   const handleChangePhone = (e) => {
     let value = e.target.value.replace(/[^\d]/, "");
     setstate({ checkcode: value });
+    setnum(value);
   };
 
   const handleSubmit = (e) => {
@@ -27,7 +28,7 @@ function SearchPage() {
       axios
         .get("/api/lottery", {
           params: {
-            phoneNumber: num,
+            phone: num,
           },
         })
         .then((response) => {

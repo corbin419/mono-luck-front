@@ -5,20 +5,36 @@ import {
   ListItem,
   ListItemButton,
   ListItemIcon,
-  ListItemText,
-  Link,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
   Box,
   Drawer,
 } from "@mui/material";
 import MenuIcon from "@material-ui/icons/Menu";
 import CreateIcon from "@mui/icons-material/Create";
+import ErrorIcon from "@mui/icons-material/Error";
+
 import SearchIcon from "@mui/icons-material/Search";
-import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Button,
+} from "@material-ui/core";
 import "../Components/MenuBar.css";
 import { styled } from "@mui/material/styles";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function MenuBar(props) {
+  let history = useNavigate();
+  const handleClose = () => {
+    setOpen(false);
+  };
   const MenuBarTitleMap = [
     { path: "/", title: "首頁" },
     { path: "/RegisterPage", title: "鎖櫃登記" },
@@ -58,6 +74,20 @@ function MenuBar(props) {
       },
     },
   });
+  const ClickRegisterPage = () => {
+    let time = new Date();
+    let theTime = time.getTime();
+    if (true) {
+      history("/RegisterPage");
+    } else {
+      setOpen(true);
+    }
+  };
+  const [Open, setOpen] = useState(false);
+
+  const ClickSearchPage = () => {
+    history("/SearchPage");
+  };
   const list = (anchor) => (
     <Box
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
@@ -81,79 +111,99 @@ function MenuBar(props) {
         </div>
         <ListItem disablePadding>
           <div className="barbutton1">
-            <Link
-              href="/RegisterPage"
-              underline="none"
-              style={{ color: "#000000" }}
-            >
-              <StyledList
-                sx={{
-                  "& .MuiListItemButton-root:hover": {
-                    "&, & .Typography-root": {
-                      color: "#02A2EE",
-                    },
+            <StyledList
+              sx={{
+                "& .MuiListItemButton-root:hover": {
+                  "&, & .Typography-root": {
+                    color: "#02A2EE",
                   },
-                }}
-              >
-                <ListItemButton>
-                  <ListItemIcon>
-                    <CreateIcon />
-                  </ListItemIcon>
-                  <Typography variant="subtitle2">鎖櫃登記</Typography>
-                </ListItemButton>
-              </StyledList>
-            </Link>
+                },
+              }}
+            >
+              <ListItemButton onClick={ClickRegisterPage}>
+                <ListItemIcon>
+                  <CreateIcon />
+                </ListItemIcon>
+                <Typography variant="subtitle2">鎖櫃登記</Typography>
+              </ListItemButton>
+            </StyledList>
           </div>
         </ListItem>
         <ListItem disablePadding>
           <div className="barbutton1">
-            <Link
-              href="/SearchPage"
-              underline="none"
-              style={{ color: "#000000" }}
-            >
-              <StyledList
-                sx={{
-                  "& .MuiListItemButton-root:hover": {
-                    "&, & .Typography-root": {
-                      color: "#02A2EE",
-                    },
+            <StyledList
+              sx={{
+                "& .MuiListItemButton-root:hover": {
+                  "&, & .Typography-root": {
+                    color: "#02A2EE",
                   },
-                }}
-              >
-                <ListItemButton>
-                  <ListItemIcon>
-                    <SearchIcon />
-                  </ListItemIcon>
-                  <Typography variant="subtitle2">查詢登記</Typography>
-                </ListItemButton>
-              </StyledList>
-            </Link>
+                },
+              }}
+            >
+              <ListItemButton onClick={ClickSearchPage}>
+                <ListItemIcon>
+                  <SearchIcon />
+                </ListItemIcon>
+                <Typography variant="subtitle2">查詢登記</Typography>
+              </ListItemButton>
+            </StyledList>
           </div>
         </ListItem>
       </List>
     </Box>
   );
   return (
-    <AppBar class="bar">
-      <Toolbar>
-        <IconButton size="large" edge="start" color="inherit" aria-label="menu">
-          {["left"].map((anchor) => (
-            <React.Fragment key={anchor}>
-              <MenuIcon onClick={toggleDrawer(anchor, true)} />
-              <Drawer
-                anchor={anchor}
-                open={state[anchor]}
-                onClose={toggleDrawer(anchor, false)}
-              >
-                {list(anchor)}
-              </Drawer>
-            </React.Fragment>
-          ))}
-        </IconButton>
-        <Typography variant="h6">{Menutitle}</Typography>
-      </Toolbar>
-    </AppBar>
+    <div>
+      <AppBar class="bar">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+          >
+            {["left"].map((anchor) => (
+              <React.Fragment key={anchor}>
+                <MenuIcon onClick={toggleDrawer(anchor, true)} />
+                <Drawer
+                  anchor={anchor}
+                  open={state[anchor]}
+                  onClose={toggleDrawer(anchor, false)}
+                >
+                  {list(anchor)}
+                </Drawer>
+              </React.Fragment>
+            ))}
+          </IconButton>
+          <Typography variant="h6">{Menutitle}</Typography>
+        </Toolbar>
+      </AppBar>
+      <div>
+        <Dialog
+          open={Open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title" class="dialog">
+            <ErrorIcon color="primary" />
+            <Typography variant="subtitle1">鎖櫃登記已結束</Typography>
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              <Typography variant="body2">
+                鎖櫃登記已結束，請於 12/12 AM 10 回來本系統查看中籤資訊
+              </Typography>
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} autoFocus>
+              確認
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
+    </div>
   );
 }
 export default MenuBar;
