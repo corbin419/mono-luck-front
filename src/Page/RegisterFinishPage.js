@@ -29,7 +29,7 @@ function RegisterFinishPage() {
         <div className="text4">12/12 中籤資訊將會公告至本系統。</div>
       </Typography>
       </div>
-      <div className="finishbutton">
+      <div className="finishbutton2">
       <Button variant="contained" onClick={handleclick} fullWidth>完成</Button>
       </div>
     </div>

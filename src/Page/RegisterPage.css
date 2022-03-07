@@ -1,12 +1,10 @@
 .bigbox1{
   position: relative;
   height: 100%;
-  width: 100vw;
-  margin: 0 auto;  
-}
+  width: 100%;
+  margin: 0 auto;}
 @media (max-width:380px){
   .bigbox1{
-
     width: fit-content;
   }
 }
@@ -30,13 +28,14 @@
   margin-top: 10px;
   font-size: 14px;
   opacity: 60%;
-  width: fit-content;
+  width: 90%;
+  text-align: center;
   margin: 0 auto;
 }
 .buttongroup{
   position: relative;
   display: flexbox;
-  width: fit-content;
+  width: 85%;
   height: 368px;
   top: 50px;
   margin-top: 20px;
@@ -44,10 +43,9 @@
 }
 .choose{
   position: relative;
-  width: fit-content;
+  width: 320px;
   height: 48px;
   margin: 0 auto;
-  padding-left: 10px;
   margin-top: 45px;
 }
 .Textchoose{
@@ -57,19 +55,19 @@
 }
 .phonenumber{
   position: relative;
-  width: 360px;
+  width: 80%;
   top: 15px;
   margin: 0 auto;
 }
 .rules{
   position: relative;
-  width: 380px;
+  width: 80%;
   margin: 0 auto;
   top :20px;
 }
 .buttonsend{
   position: relative;
-  width: 380px;
+  width: 80%;
   top: 30px;
   margin: 0 auto;
 }
@@ -82,12 +80,12 @@
 }
 .divider{
   position: relative;
-  width: 450px;
+  width: 90%;
   margin: 0 auto;
 }
 .divider2{
   position: relative;
-  width: 420px;
+  width: 90%;
   top: 30px;
   margin: 0 auto;
 }

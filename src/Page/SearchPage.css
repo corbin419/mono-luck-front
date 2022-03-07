@@ -3,19 +3,16 @@
     width: 100%;
     height: 100%;   
 }
-.Button{
-    width: 380px;
+
+.finishbutton1{
     position: relative;
-    left: 15px;
-}
-.finishbutton{
-    position: relative;
-    width: 380px;
+    width: 80%;
     margin: 0 auto;
+    top: 30px;
 }
 .phoneenter{
     position: relative;
-    width: 380px;
+    width: 80%;
     margin: 0 auto;
-    top :40px;
+    top :20px;
 }
